@@ -605,7 +605,7 @@ function collapseWhitespace(elem, isBlock) {
   while (node !== elem) {
     if (node.nodeType === 3) {
       // Node.TEXT_NODE
-      var text = node.data.replace(/[ \r\n\t]+/g, ' ');
+      var text = node.data;//.replace(/[ \r\n\t]+/g, ' ');
 
       if ((!prevText || / $/.test(prevText.data)) && !prevVoid && text[0] === ' ') {
         text = text.substr(1);

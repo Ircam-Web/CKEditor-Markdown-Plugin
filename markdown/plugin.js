@@ -4,7 +4,7 @@
  * Licensed under the MIT license
  * CodeMirror Plugin: http://codemirror.net/ (MIT License)
  * Markdown Parser:
- * HTML to Markdown Parser: 
+ * HTML to Markdown Parser:
  */
 'use strict';
 (function() {
@@ -51,7 +51,7 @@
                 editor.ui.space('contents').append(textarea);
 
                 var editable = editor.editable(new sourceEditable(editor, textarea)),
-                    htmlData = editor.getData(1).replace(/(\r\n|\n|\r)/gm,""); // remove all linebreaks to prevent some parsing issues
+                    htmlData = editor.getData(1)//.replace(/(\r\n|\n|\r)/gm,""); // remove all linebreaks to prevent some parsing issues
 
                 // Convert to Markdown and Fill the textarea.
                 if (typeof(toMarkdown) == 'undefined') {
@@ -64,7 +64,7 @@
 
                 if (typeof (CodeMirror) == 'undefined' || typeof (CodeMirror.modes.gfm) == 'undefined') {
                     CKEDITOR.document.appendStyleSheet(rootPath + 'css/codemirror.min.css');
-                
+
                     if (config.theme.length && config.theme != 'default') {
                         CKEDITOR.document.appendStyleSheet(rootPath + 'theme/' + config.theme + '.css');
                     }
@@ -77,6 +77,7 @@
                 }
                 if (typeof(marked) == 'undefined') {
                     CKEDITOR.scriptLoader.load(rootPath + 'js/marked.js');
+
                 }
                 // Having to make <textarea> fixed sized to conquer the following bugs:
                 // 1. The textarea height/width='100%' doesn't constraint to the 'td' in IE6/7.
